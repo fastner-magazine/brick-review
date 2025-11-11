@@ -20,7 +20,7 @@
 - **TypeScript 5.9.3**
 - **Tailwind CSS 4.1.16＋Radix UI (shadcn/ui)**
 - **React Hooks + Context API**
-- **Rust/WebAssembly (wasm-packによる画像検証) **
+- **Rust : WebAssembly (wasm-packによる画像検証) **
 - **Fuse.js (ファジー検索)**
 
 ### バックエンド
