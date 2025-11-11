@@ -15,12 +15,13 @@
 ## 🏗️ アーキテクチャ
 
 ### フロントエンド
-- **フレームワーク**: Next.js 15.5.6 (App Router)
-- **UI ライブラリ**: React 19.2.0
-- **言語**: TypeScript 5.9.3
-- **スタイリング**: Tailwind CSS 4.1.16
-- **UI コンポーネント**: Radix UI (shadcn/ui)
-- **状態管理**: React Hooks + Context API
+- **Next.js 15.5.6 (App Router)
+- **React 19.2.0
+- **TypeScript 5.9.3
+- **Tailwind CSS 4.1.16＋Radix UI (shadcn/ui)
+- **React Hooks + Context API
+- **Rust/WebAssembly (wasm-packによる画像検証) 
+- **Fuse.js (ファジー検索)
 
 ### バックエンド
 - **Firebase**:
@@ -31,9 +32,8 @@
 - **API**: Next.js API Routes (Server Actions)
 
 ### 追加技術
-- **WebAssembly**: Rust (wasm-pack) による画像品質検証
+
 - **暗号化**: Google Cloud KMS、Web Crypto API
-- **検索**: Fuse.js (ファジー検索)
 - **Canvas API**: 価格表生成、アイソメトリック図形描画
 - **CSV 処理**: csv-parse, csv-stringify
 - **Google Sheets API**: データ連携
