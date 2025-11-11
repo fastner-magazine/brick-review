@@ -1,0 +1,299 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --secondary: #f3f4f6;
+  --secondary-foreground: #171717;
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+  --accent: #eff6ff;
+  --accent-foreground: #1e40af;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb;
+  --input: #ffffff;
+  --ring: #3b82f6;
+  --card: #ffffff;
+  --card-foreground: #171717;
+  --popover: #ffffff;
+  --popover-foreground: #171717;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --secondary: #1f2937;
+  --secondary-foreground: #ededed;
+  --muted: #1f2937;
+  --muted-foreground: #9ca3af;
+  --accent: #1e3a8a;
+  --accent-foreground: #93c5fd;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #374151;
+  --input: #1a1a1a;
+  --ring: #3b82f6;
+  --card: #1a1a1a;
+  --card-foreground: #ededed;
+  --popover: #1a1a1a;
+  --popover-foreground: #ededed;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Base reset */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Print helpers */
+@media print {
+  body, html { 
+    margin: 0; 
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  body * { 
+    visibility: hidden; 
+  }
+  #buyback-agreement, 
+  #buyback-agreement * { 
+    visibility: visible !important; 
+  }
+  #buyback-agreement { 
+    position: absolute !important; 
+    left: 0 !important; 
+    top: 0 !important; 
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 40px !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    display: block !important;
+  }
+  .no-print { 
+    display: none !important; 
+    visibility: hidden !important;
+  }
+}
+
+/* PDF generation mode - forces desktop layout */
+body.print-mode {
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+body.print-mode * {
+  visibility: hidden !important;
+}
+
+body.print-mode #buyback-agreement,
+body.print-mode #buyback-agreement * {
+  visibility: visible !important;
+}
+
+body.print-mode #buyback-agreement {
+  display: block !important;
+  visibility: visible !important;
+  width: calc(100% - 80px) !important;
+  max-width: calc(100% - 80px) !important;
+  margin: 40px !important;
+  padding: 40px !important;
+  font-size: 0.95rem !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+  background: white !important;
+}
+
+body.print-mode .no-print {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+body.print-mode #buyback-agreement table {
+  width: 100% !important;
+  font-size: 0.95rem !important;
+}
+
+/* Form styles */
+.form-fieldset {
+  border: 2px solid #e3f2fd;
+  border-radius: 12px;
+  padding: clamp(16px, 4vw, 24px);
+  margin-bottom: 20px;
+  background: linear-gradient(to bottom, #ffffff, #f8fbff);
+  box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+  transition: all 0.3s ease;
+  max-width: 100%;
+}
+.form-fieldset:hover { border-color: #bbdefb; box-shadow: 0 4px 12px rgba(0,123,255,0.12); }
+.form-fieldset legend {
+  font-weight: 700;
+  font-size: clamp(1rem, 3vw, 1.15rem);
+  color: #0056b3;
+  padding: 0 12px;
+  background: white;
+  border-radius: 6px;
+}
+
+.form-label {
+  display: block;
+  margin: 16px 0 6px;
+  font-weight: 600;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  color: #333;
+}
+
+.form-input {
+  width: 100%;
+  max-width: 100%;
+  padding: clamp(10px, 2.5vw, 14px);
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+  font-size: 16px; /* iPhoneの自動ズーム防止のため16px以上必須 */
+  transition: all 0.2s ease;
+  background: white;
+  box-sizing: border-box;
+}
+.form-input:focus { outline: none; border-color: #007bff; box-shadow: 0 0 0 3px rgba(0,123,255,0.1); }
+.form-input:hover { border-color: #007bff; }
+
+/* Prevent overflowing form controls (date/datetime inputs etc.) inside flexible containers.
+   Some browsers render date/datetime controls with a minimum intrinsic width which can
+   cause the input to overflow its parent when the parent is a flex item. Ensure inputs
+   can shrink and never exceed their container. */
+.form-input,
+input[type="date"],
+input[type="datetime-local"],
+input[type="text"],
+textarea,
+select {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Allow any children inside fieldsets to shrink when layout uses flexbox. */
+.form-fieldset * {
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .form-fieldset { max-width: 900px; margin-left: auto; margin-right: auto; }
+}
+@media (min-width: 1024px) {
+  .form-label { font-size: 1rem; }
+  .form-input { font-size: 16px; padding: 14px; }
+}
+
+/* Legacy button classes - migrated to Button component (components/ui/button.tsx)
+   Keep these only if other pages still use them directly.
+.btn-primary {
+  width: 100%;
+  padding: clamp(12px, 3vw, 16px);
+  min-height: 48px;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: clamp(14px, 3.5vw, 16px);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,123,255,0.25);
+}
+.btn-primary:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,123,255,0.35); }
+.btn-primary:active:not(:disabled) { transform: translateY(0); }
+.btn-primary:disabled { background: linear-gradient(135deg, #90caf9 0%, #64b5f6 100%); cursor: not-allowed; box-shadow: none; }
+
+.btn-secondary {
+  width: 100%;
+  padding: clamp(12px, 3vw, 16px);
+  min-height: 48px;
+  background: white;
+  color: #0056b3;
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: clamp(14px, 3.5vw, 16px);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.btn-secondary:hover { background: #f0f8ff; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,123,255,0.15); }
+.btn-secondary:active { transform: translateY(0); }
+
+.btn-danger {
+  width: 100%;
+  padding: clamp(12px, 3vw, 16px);
+  min-height: 48px;
+  background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: clamp(14px, 3.5vw, 16px);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(40,167,69,0.25);
+}
+.btn-danger:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(40,167,69,0.35); }
+.btn-danger:disabled { background: linear-gradient(135deg, #a5d6a7 0%, #81c784 100%); cursor: not-allowed; box-shadow: none; }
+*/
+
+.button-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 20px; }
+@media (max-width: 640px) {
+  .button-group { display: flex; flex-direction: column-reverse; gap: 12px; }
+}
+
+/* File selection button */
+.file-button {
+  width: 100%;
+  padding: clamp(12px, 3vw, 16px);
+  min-height: 48px;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: clamp(14px, 3.5vw, 16px);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,123,255,0.25);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.file-button:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,123,255,0.35); }
+.file-button--selected { background: linear-gradient(135deg, #28a745 0%, #218838 100%); box-shadow: 0 4px 12px rgba(40,167,69,0.25); }
+.file-button--selected:hover { box-shadow: 0 6px 16px rgba(40,167,69,0.35); }
+
+/* Spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Slide down animation for suggestions */
+@keyframes slideDown {
+  0% { 
+    opacity: 0; 
+    transform: translateY(-10px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
