@@ -38,6 +38,11 @@
 - **CSV 処理**: csv-parse, csv-stringify
 - **Google Sheets API**: データ連携
 
+### 実装方針技術
+- **Typesense** 全文検索エンジン
+- **BigQuery** 需給の可視化・予測
+- **ShipStationAPI** 出荷処理の自動化
+
 ## 📁 ディレクトリ構成
 
 \\\
