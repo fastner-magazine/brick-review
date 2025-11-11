@@ -1,0 +1,15 @@
+{
+  "name": "wasm-image-validator",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "wasm_image_validator_bg.wasm",
+    "wasm_image_validator.js",
+    "wasm_image_validator.d.ts"
+  ],
+  "main": "wasm_image_validator.js",
+  "types": "wasm_image_validator.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
