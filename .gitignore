@@ -1,0 +1,75 @@
+### Node / Next / TypeScript
+# Node modules
+node_modules/
+
+# Next.js build output
+.next/
+.firebase/
+
+# Production build output
+out/
+
+firebase-debug.log
+# TypeScript
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.production
+.env.production.backup.*
+
+# Service account keys
+encoded.txt
+*-service-account-key.json
+
+# Mac/Windows system files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+# JetBrains IDEs
+.idea/
+
+# Python virtual env (present in this workspace)
+.venv/
+
+# Local build artifacts
+dist/
+build/
+
+# Lock files - keep one per project system if desired (lockfiles are currently present)
+# package-lock.json
+# pnpm-lock.yaml
+# yarn.lock
+
+# Misc
+.cache/
+coverage/
+coverage-final.json
+
+# Rust / WASM
+wasm-image-validator/target/
+wasm-image-validator/pkg/
+wasm-image-validator/Cargo.lock
+
+# Temporary files
+*.tmp
+*.temp
+
+# Optional: ignore generated Next images cache
+.next/cache/
+firebase-debug.log
+firebase-debug.log
+
+/.env
+/.next
